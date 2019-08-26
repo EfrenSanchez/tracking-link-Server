@@ -1,0 +1,26 @@
+{
+  "name": "tracking-link",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server/index.js",
+  "author": "Efren Sanchez <efren.sanchezgon@gmail.com>",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^4.1.1",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.3",
+    "graphql-tools": "^4.0.5",
+    "mongoose": "^5.6.10",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
