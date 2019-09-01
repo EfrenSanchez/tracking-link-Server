@@ -15,16 +15,21 @@ const typeDefs = `
     password: String!
   }
 
+  type AuthData {
+    userId: ID!
+    token: String!
+    tokenExpiration: Int!
+  }
+  
   type Query {
-    hello: String
-    greet(name: String!): String
-    users: [User]
+    user: User
+    login(email: String!, password: String!): AuthData!
   }
 
   type Mutation {
     createUser(input: UserInput): User
-    deleteUser(_id: ID): User
-    updateUser(_id: ID, input: UserInput): User
+    # deleteUser(_id: ID): User
+    # updateUser(_id: ID, input: UserInput): User
   }
 `;
 module.exports = makeExecutableSchema({

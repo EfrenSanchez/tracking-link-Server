@@ -1,17 +1,22 @@
 //Dependencies
 const express = require("express");
 const morgan = require("morgan");
+const bodyParser = require('body-parser');
 require("dotenv").config();
 const graphqlHTTP = require("express-graphql");
+const isAuth = require("./middleware/is-auth");
 //Db
 const connect = require("./db/database");
 //Schemas GraphQL
 const schema = require("./graphql/schema");
 
 const app = express();
-
 //DB conection
 connect();
+
+//Middlewares
+app.use(bodyParser.json());
+app.use(isAuth);
 
 //Dev Logging
 if (process.env.NODE_ENV === "development") {
